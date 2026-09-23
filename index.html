@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant Sensor Manager Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, Roboto, Helvetica, Arial, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.55; color: #1f2a1f; }
+  h1 { color: #1B5E20; }
+  h2 { margin-top: 1.8em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f1f6ef; }
+  hr { border: 0; border-top: 1px solid #ddd; margin: 3em 0; }
+  .callout { background: #f1f6ef; border-left: 4px solid #2E7D32; padding: 12px 16px; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+
+<h1>Plant Sensor Manager Privacy Policy</h1>
+<p><em>Last updated: 19 September 2026</em></p>
+
+<p>Plant Sensor Manager is an Android application that reads Bluetooth Low Energy plant sensors sold as Xiaomi Mi Flower Care and Mi Flora (model HHCCJCY01) and shows their measurements. This policy explains exactly what the app stores and where.</p>
+
+<div class="callout">
+<strong>Everything stays on your phone.</strong> There is no account, no cloud copy, no analytics and no server of ours: nothing the app holds is sent to us or to anyone else. Your sensor addresses, the names you give your plants and every reading are written only to the app's private storage on your device. If you choose to switch on the optional Home Assistant connection, the app asks <em>your</em> server — at the address you type in — for its plant sensors, and contacts no other address.
+</div>
+
+<h2>What the app stores on your device</h2>
+
+<table>
+  <tr><th>Data</th><th>Stored?</th><th>Where and why</th></tr>
+  <tr>
+    <td>Bluetooth addresses (MAC) of your sensors</td>
+    <td>Yes, on your device only</td>
+    <td>Saved in the app's private settings so it can reconnect to a sensor you have already found. Never transmitted.</td>
+  </tr>
+  <tr>
+    <td>Sensor names advertised by the hardware, such as "Flower care"</td>
+    <td>Yes, on your device only</td>
+    <td>Saved so the app can show what each sensor calls itself.</td>
+  </tr>
+  <tr>
+    <td>Plant records: the names you type, the locations you create, and which plant is in which location</td>
+    <td>Yes, on your device only</td>
+    <td>Saved in the app's private settings so your plants keep their names and grouping between launches.</td>
+  </tr>
+  <tr>
+    <td>Readings: soil moisture, temperature, light, soil conductivity, battery level, signal strength, each with a timestamp</td>
+    <td>Yes, on your device only</td>
+    <td>Appended to a file in the app's private storage so the statistics chart can be drawn.</td>
+  </tr>
+  <tr>
+    <td>Settings: watering alert thresholds, which chart series you show, whether background checks are on</td>
+    <td>Yes, on your device only</td>
+    <td>Saved in the app's private settings.</td>
+  </tr>
+  <tr>
+    <td><strong>Photos, camera or gallery access</strong></td>
+    <td><strong>No</strong></td>
+    <td>The app has no photo feature and requests no camera or media permission. It never reads, takes or stores images.</td>
+  </tr>
+  <tr>
+    <td><strong>Your location</strong></td>
+    <td><strong>No</strong></td>
+    <td>The app never reads, derives or stores your geographic position. See the note on the location permission below.</td>
+  </tr>
+  <tr>
+    <td><strong>Accounts, contacts, advertising identifiers, analytics, crash reports</strong></td>
+    <td><strong>No</strong></td>
+    <td>None are collected, and the app contains no third-party analytics, advertising or crash-reporting components.</td>
+  </tr>
+</table>
+
+<h2>Nothing is uploaded to us</h2>
+
+<p>Your sensors' Bluetooth addresses and your readings are never uploaded, shared or sold. The app has no server of its own, no account system, no analytics and no crash reporting, and it contains no third-party network components.</p>
+
+<p>Data leaves your phone in two ways, and both are ones you start:</p>
+
+<ul>
+  <li><strong>The CSV export.</strong> <em>Save all data as CSV</em> in Settings writes a file where you tell the system file picker to put it.</li>
+  <li><strong>The optional Home Assistant connection.</strong> If you enter your server's address and a long-lived access token in Settings, the app asks that server for its plant sensors and for the measurements it has already recorded, so that an imported plant has a history to chart. The requests go to that address only, and only to read: the app does not send your plants, your names or your readings to it. The token is sent to your own server to authenticate, as it must be. Imported measurements are stored on your phone like any other reading.</li>
+</ul>
+
+<p>The Home Assistant connection is off until you set it up. <em>Disconnect</em> switches it off and forgets both the address and the token. The address and the token are kept in the app's private storage, and are deliberately excluded from Android cloud backups and phone-to-phone transfers, so the token never travels with a backup.</p>
+
+<p>Home Assistant servers are usually reached over plain <code>http</code> on your home network, so the app permits that. If you enter an <code>https</code> address, the connection is encrypted and the certificate is checked in the ordinary way.</p>
+
+<h2>Permissions, and why each one is needed</h2>
+
+<p>The app requests the minimum set needed to talk to a sensor you own, and nothing else.</p>
+
+<table>
+  <tr><th>Permission</th><th>Android versions</th><th>Why</th></tr>
+  <tr><td>Nearby devices (<code>BLUETOOTH_SCAN</code>)</td><td>12 and newer</td><td>To find sensors nearby. Declared with <code>neverForLocation</code>, which tells Android the app does not use scan results to work out where you are.</td></tr>
+  <tr><td>Nearby devices (<code>BLUETOOTH_CONNECT</code>)</td><td>12 and newer</td><td>To connect to a sensor you selected and read its values.</td></tr>
+  <tr><td><code>BLUETOOTH</code>, <code>BLUETOOTH_ADMIN</code></td><td>11 and older only</td><td>The pre-Android-12 equivalents of the two above.</td></tr>
+  <tr><td>Location (<code>ACCESS_FINE_LOCATION</code>)</td><td>11 and older only</td><td>On those Android versions the operating system requires this permission before any app may scan for Bluetooth devices at all. Plant Sensor Manager never reads your location, and the permission is declared with <code>maxSdkVersion="30"</code> so it is not requested on Android 12 or newer.</td></tr>
+  <tr><td>Notifications (<code>POST_NOTIFICATIONS</code>)</td><td>13 and newer</td><td>To show the "water me" alert. Asked for only when you switch that alert on, and the app works without it.</td></tr>
+  <tr><td>Internet (<code>INTERNET</code>)</td><td>All</td><td>Only for the optional Home Assistant connection described above. It is unused unless you enter a server address; the app has no other network destination.</td></tr>
+  <tr><td><code>WAKE_LOCK</code>, <code>RECEIVE_BOOT_COMPLETED</code></td><td>All</td><td>Needed by Android's scheduler so the optional background sensor check can finish once started, and can resume after the phone restarts. These are not permissions you are asked about, and neither reveals anything about you.</td></tr>
+</table>
+
+<p>That is the complete list. In particular there is no camera or photo permission, no storage permission and no contacts permission.</p>
+
+<h2>Controlling and deleting your data</h2>
+
+<p>There are no accounts and no cloud records, so there is nothing held elsewhere to request deletion of. On your phone you are in full control:</p>
+
+<ul>
+  <li><strong>Forget a plant</strong> in the app removes that sensor, its name, its location, its saved reading and its entire recorded history.</li>
+  <li><strong>Save all data as CSV</strong> in Settings exports every reading the app has recorded, so you can keep or inspect it outside the app.</li>
+  <li><strong>Clearing the app's storage</strong> in Android Settings, or <strong>uninstalling</strong> the app, removes everything it has stored.</li>
+</ul>
+
+<h2>Children</h2>
+<p>Plant Sensor Manager is not directed at children and collects no data from anyone.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the updated version will be published at the same address and the date above will change with it.</p>
+
+<h2>Trademarks and non-affiliation</h2>
+<p>This is an independent application and is not affiliated with, authorized, sponsored, or endorsed by Beijing HHCC Plant Technology Co., Ltd. or Xiaomi. Product names are used only to state which hardware the application is compatible with.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:stasgold@gmail.com">stasgold@gmail.com</a></p>
+
+<hr>
+
+<h1 lang="ru">Политика конфиденциальности Plant Sensor Manager</h1>
+<p lang="ru"><em>Обновлено: 19 сентября 2026</em></p>
+
+<p lang="ru">Plant Sensor Manager — приложение для Android, которое считывает датчики растений Bluetooth Low Energy, продаваемые как Xiaomi Mi Flower Care и Mi Flora (модель HHCCJCY01), и показывает их измерения. Эта политика описывает, что именно приложение хранит и где.</p>
+
+<div class="callout" lang="ru">
+<strong>Все данные остаются на вашем телефоне.</strong> У приложения нет разрешения на доступ в интернет, поэтому оно физически не может ничего отправить. Нет аккаунта, сервера, облачной копии и аналитики. Адреса датчиков, имена растений и все измерения записываются только в закрытое хранилище приложения на вашем устройстве.
+</div>
+
+<h2 lang="ru">Что хранится на устройстве</h2>
+
+<table lang="ru">
+  <tr><th>Данные</th><th>Хранятся?</th><th>Где и зачем</th></tr>
+  <tr><td>Bluetooth-адреса (MAC) ваших датчиков</td><td>Да, только на устройстве</td><td>В закрытых настройках приложения, чтобы снова подключаться к уже найденному датчику. Никогда не передаются.</td></tr>
+  <tr><td>Имена датчиков, которые передаёт само устройство, например «Flower care»</td><td>Да, только на устройстве</td><td>Чтобы показывать, как датчик себя называет.</td></tr>
+  <tr><td>Записи о растениях: введённые вами имена, созданные места и распределение растений по местам</td><td>Да, только на устройстве</td><td>Чтобы имена и группировка сохранялись между запусками.</td></tr>
+  <tr><td>Измерения: влажность почвы, температура, освещённость, электропроводность, заряд батареи, уровень сигнала и время каждого измерения</td><td>Да, только на устройстве</td><td>В файле в закрытом хранилище приложения, чтобы строить график статистики.</td></tr>
+  <tr><td>Настройки: пороги полива, выбранные серии графика, включены ли фоновые проверки</td><td>Да, только на устройстве</td><td>В закрытых настройках приложения.</td></tr>
+  <tr><td><strong>Фотографии, доступ к камере или галерее</strong></td><td><strong>Нет</strong></td><td>В приложении нет работы с фото, и оно не запрашивает разрешений на камеру или медиафайлы.</td></tr>
+  <tr><td><strong>Ваше местоположение</strong></td><td><strong>Нет</strong></td><td>Приложение никогда не считывает, не вычисляет и не хранит ваше местоположение. См. примечание о разрешении ниже.</td></tr>
+  <tr><td><strong>Аккаунты, контакты, рекламные идентификаторы, аналитика, отчёты о сбоях</strong></td><td><strong>Нет</strong></td><td>Ничего из этого не собирается, сторонних SDK в приложении нет.</td></tr>
+</table>
+
+<h2 lang="ru">Ничего не выгружается</h2>
+<p lang="ru">У приложения нет своего сервера, учётных записей, аналитики и отчётов об ошибках: адреса датчиков и ваши измерения не выгружаются, не передаются и не продаются. Данные покидают телефон только двумя способами, и оба запускаете вы сами. Первый — экспорт через «Сохранить все данные в CSV» в настройках, где вы выбираете место сохранения. Второй — необязательное подключение к Home Assistant: если вы введёте в настройках адрес своего сервера и долгосрочный токен доступа, приложение будет запрашивать данные о растениях только у этого адреса. Приложение читает данные с сервера и ничего ему о ваших растениях не отправляет; токен передаётся вашему же серверу для авторизации. Кнопка «Отключить» выключает подключение и стирает адрес и токен, а токен намеренно исключён из резервных копий Android.</p>
+
+<h2 lang="ru">Разрешения</h2>
+<p lang="ru">Запрашивается минимум, необходимый для связи с вашим датчиком: «Устройства поблизости» (поиск и подключение по Bluetooth) на Android 12 и новее; на Android 11 и старее — их предшественники, а также разрешение на местоположение, которое сама операционная система требует для любого поиска по Bluetooth на этих версиях (приложение местоположение не читает, и на Android 12+ это разрешение не запрашивается); и разрешение на уведомления на Android 13 и новее — только когда вы включаете напоминание о поливе.</p>
+
+<h2 lang="ru">Управление данными и удаление</h2>
+<p lang="ru">Аккаунтов и облачных записей нет, поэтому удалять что-либо на стороне сервера не требуется. «Забыть» растение удаляет датчик, его имя, место, сохранённое показание и всю его историю. «Сохранить все данные в CSV» экспортирует все записанные измерения. Очистка данных приложения или его удаление стирает всё, что оно хранило.</p>
+
+<h2 lang="ru">Товарные знаки и отсутствие аффилированности</h2>
+<p lang="ru">Это независимое приложение, не связанное с Beijing HHCC Plant Technology Co., Ltd. или Xiaomi, не одобренное и не спонсируемое ими. Названия продуктов используются только для указания совместимости с оборудованием.</p>
+
+<h2 lang="ru">Контакт</h2>
+<p lang="ru">Вопросы по этой политике: <a href="mailto:stasgold@gmail.com">stasgold@gmail.com</a></p>
+
+</body>
+</html>
