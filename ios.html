@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant Sensor Manager for iPhone Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, Roboto, Helvetica, Arial, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.55; color: #1f2a1f; }
+  h1 { color: #1B5E20; }
+  h2 { margin-top: 1.8em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f1f6ef; }
+  .callout { background: #f1f6ef; border-left: 4px solid #2E7D32; padding: 12px 16px; margin: 1.2em 0; }
+</style>
+</head>
+<body>
+<h1>Plant Sensor Manager for iPhone Privacy Policy</h1>
+<p><em>Last updated: 28 September 2026</em></p>
+
+<p>Plant Sensor Manager is an iPhone application that reads Bluetooth Low Energy plant sensors sold as
+Xiaomi Mi Flower Care and Mi Flora (model HHCCJCY01) and shows their measurements. This policy explains
+exactly what the app stores and where. The Android version has its own policy.</p>
+
+<div class="callout">
+<strong>Everything stays on your iPhone.</strong> There is no account, no cloud copy, no analytics and no
+server of ours: nothing the app holds is sent to us or to anyone else. If you choose to switch on the
+optional Home Assistant connection, the app asks your server, at the address you type in, for its plant
+sensors, and contacts no other address.
+</div>
+
+<h2>What the app stores on your device</h2>
+<table>
+  <tr><th>Data</th><th>Stored?</th><th>Where and why</th></tr>
+  <tr><td>Bluetooth addresses (MAC) of your sensors, and the identifier iOS gives each one</td><td>Yes, on your device only</td>
+      <td>The address is read from the sensor's own broadcast. Both are saved in the app's own storage so it can reconnect to a sensor you have already found. Never transmitted.</td></tr>
+  <tr><td>Sensor names advertised by the hardware, such as "Flower care"</td><td>Yes, on your device only</td>
+      <td>Saved so the app can show what each sensor calls itself.</td></tr>
+  <tr><td>Plant records: the names you type, the locations you create, and which plant is in which location</td><td>Yes, on your device only</td>
+      <td>Saved so your plants keep their names and grouping between launches.</td></tr>
+  <tr><td>Readings: soil moisture, temperature, light, soil conductivity, battery level, signal strength, each with a timestamp</td><td>Yes, on your device only</td>
+      <td>Appended to a file in the app's own storage so the statistics chart can be drawn.</td></tr>
+  <tr><td>Settings: watering alert thresholds, which chart series you show, whether background checks are on</td><td>Yes, on your device only</td>
+      <td>Saved in the app's own settings.</td></tr>
+  <tr><td>Photos, camera, location, contacts, advertising identifiers, analytics, crash reports</td><td>No</td>
+      <td>None are read or collected. The app contains no third-party analytics, advertising or crash-reporting components, and does no tracking.</td></tr>
+</table>
+
+<h2>Nothing is uploaded to us</h2>
+<p>Data leaves your iPhone in three ways, and all three are ones you start:</p>
+<ul>
+  <li><strong>The CSV export.</strong> <em>Save all data as CSV</em> in Settings writes a file where you choose in the system's save dialog.</li>
+  <li><strong>The share button.</strong> It puts your plants' readings into plain text and hands it to the system share sheet; where it goes, if anywhere, is your choice.</li>
+  <li><strong>The optional Home Assistant connection.</strong> If you enter your server's address and a long-lived access token in Settings, the app asks that server for its plant sensors and the measurements it has already recorded. The requests go to that address only, and only to read. The token is sent to your own server to authenticate, as it must be.</li>
+</ul>
+<p>The Home Assistant connection is off until you set it up. <em>Disconnect</em> switches it off and forgets both the address and the token.
+The token is kept in the iOS Keychain, readable only on this device, so it is not included in backups or transfers to a new iPhone.
+Home Assistant servers are often reached over plain http, so the app permits that; if you enter an https address the connection is encrypted and the certificate is checked in the ordinary way.</p>
+
+<h2>Permissions, and why each one is needed</h2>
+<table>
+  <tr><th>Permission</th><th>Why</th></tr>
+  <tr><td>Bluetooth</td><td>To find your sensors, connect to one you selected and read its values, and to blink its light when you tap Locate.</td></tr>
+  <tr><td>Notifications</td><td>To show the "water me" alert. Asked for only when you switch background checks on; the app works without it.</td></tr>
+  <tr><td>Local network</td><td>Only if your Home Assistant server is on your home network. Unused otherwise.</td></tr>
+  <tr><td>Background app refresh</td><td>So the optional background check can read your sensors from time to time. iOS decides when it runs, and you can turn it off in Settings.</td></tr>
+</table>
+<p>That is the complete list. There is no camera, photo, location or contacts permission.</p>
+
+<h2>Controlling and deleting your data</h2>
+<ul>
+  <li><strong>Forget</strong> on a plant removes that sensor, its name, its location, its saved reading and its entire recorded history.</li>
+  <li><strong>Save all data as CSV</strong> exports every reading the app has recorded.</li>
+  <li>Deleting the app removes everything it has stored.</li>
+</ul>
+
+<h2>Children</h2>
+<p>Plant Sensor Manager is not directed at children and collects no data from anyone.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the updated version will be published at the same address and the date above will change with it.</p>
+
+<h2>Trademarks and non-affiliation</h2>
+<p>This is an independent application and is not affiliated with, authorized, sponsored, or endorsed by Beijing HHCC Plant
+Technology Co., Ltd. or Xiaomi. Product names are used only to state which hardware the application is compatible with.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:stasgold@gmail.com">stasgold@gmail.com</a></p>
+</body>
+</html>
